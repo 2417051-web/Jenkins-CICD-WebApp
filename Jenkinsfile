@@ -12,21 +12,22 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the web application...'
-                bat 'echo Build completed successfully'
+                sh 'echo Build completed successfully'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                bat 'test.bat'
+                sh 'test -f index.html'
+                echo 'TEST PASSED: index.html exists.'
             }
         }
 
         stage('Deploy') {
             steps {
                 echo 'Deploying the web application...'
-                bat 'echo Deployment completed successfully'
+                sh 'echo Deployment completed successfully'
             }
         }
     }
